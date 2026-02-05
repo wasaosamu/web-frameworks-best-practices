@@ -34,6 +34,11 @@ Python で「読みやすく」「ミスが少なく」「保守しやすい」�
 | **第10章** | [10-package-structure.md](./10-package-structure.md) | パッケージ構造と import |
 | **第11章** | [11-logging-docstring.md](./11-logging-docstring.md) | ロギングと docstring |
 | **第12章** | [12-exception-design.md](./12-exception-design.md) | 例外の設計 |
+| **第14章** | [14-classes-oop.md](./14-classes-oop.md) | クラスとオブジェクト指向 |
+| **第15章** | [15-env-variables.md](./15-env-variables.md) | 環境変数 |
+| **第16章** | [16-decorators.md](./16-decorators.md) | デコレータ |
+| **第17章** | [17-json-serialization.md](./17-json-serialization.md) | JSON の読み書き |
+| **第18章** | [18-dataclass.md](./18-dataclass.md) | dataclass |
 | **用語集** | [13-glossary.md](./13-glossary.md) | 用語集 |
 
 ---
@@ -58,7 +63,7 @@ Python で「読みやすく」「ミスが少なく」「保守しやすい」�
 ```
 Python/
 ├── README.md
-├── 01-basics.md ～ 13-glossary.md
+├── 01-basics.md ～ 18-dataclass.md、13-glossary.md
 └── frameworks/
     ├── README.md
     ├── flask/
