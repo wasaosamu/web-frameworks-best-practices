@@ -1,6 +1,6 @@
 # Web Frameworks Best Practices（学習用ドキュメント）
 
-このリポジトリは、**Next.js / NestJS / React Router v7 / TypeScript** のベストプラクティスを、学習用にまとめたドキュメントです。
+このリポジトリは、**Next.js / NestJS / React Router v7 / TypeScript / Python** のベストプラクティスを、学習用にまとめたドキュメントです。
 
 **リポジトリの場所（ローカル）**  
 `デスクトップ/work/docs`（フルパス: `~/Desktop/work/docs`）
@@ -15,6 +15,7 @@
 | [NestJS](./NestJS/) | NestJS + TypeScript のベストプラクティス |
 | [React Router v7](./React%20Router%20v7/) | React Router v7 + TypeScript のベストプラクティス |
 | [TypeScript](./TypeScript/) | TypeScript のベストプラクティス |
+| [Python](./Python/) | Python のベストプラクティス + フレームワーク（Flask / Django） |
 
 各フォルダの **README.md** から目次を確認し、章ごとの MD ファイルを読んでください。
 
