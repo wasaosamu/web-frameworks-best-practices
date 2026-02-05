@@ -26,6 +26,15 @@ Python で「読みやすく」「ミスが少なく」「保守しやすい」�
 | **第2章** | [02-data-types.md](./02-data-types.md) | データ型（文字列、数値、リスト、辞書） |
 | **第3章** | [03-functions.md](./03-functions.md) | 関数の書き方と使い方 |
 | **第4章** | [04-best-practices.md](./04-best-practices.md) | ベストプラクティスまとめ |
+| **第5章** | [05-pep8-style.md](./05-pep8-style.md) | PEP 8 とスタイル（フォーマッター） |
+| **第6章** | [06-virtual-env.md](./06-virtual-env.md) | 仮想環境と requirements.txt |
+| **第7章** | [07-type-hints.md](./07-type-hints.md) | 型ヒント |
+| **第8章** | [08-comprehensions-generators.md](./08-comprehensions-generators.md) | リスト内包表記・ジェネレータ・with 文 |
+| **第9章** | [09-testing.md](./09-testing.md) | テスト（pytest・unittest） |
+| **第10章** | [10-package-structure.md](./10-package-structure.md) | パッケージ構造と import |
+| **第11章** | [11-logging-docstring.md](./11-logging-docstring.md) | ロギングと docstring |
+| **第12章** | [12-exception-design.md](./12-exception-design.md) | 例外の設計 |
+| **用語集** | [13-glossary.md](./13-glossary.md) | 用語集 |
 
 ---
 
@@ -48,15 +57,14 @@ Python で「読みやすく」「ミスが少なく」「保守しやすい」�
 
 ```
 Python/
-├── README.md           ← このファイル（目次と読み方）
-├── 01-basics.md
-├── 02-data-types.md
-├── 03-functions.md
-├── 04-best-practices.md
-└── frameworks/         ← フレームワークのドキュメント
+├── README.md
+├── 01-basics.md ～ 13-glossary.md
+└── frameworks/
     ├── README.md
     ├── flask/
-    └── django/
+    ├── django/
+    ├── fastapi/
+    └── bottle/
 ```
 
 各章の MD ファイルを開いて、順に読み進めてください。
