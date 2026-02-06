@@ -21,19 +21,19 @@ GET / POST / エラーハンドリングの考え方を、初心者向けに説�
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-users = [{"id": 1, "name": "山田"}]
+users = [{"id": 1, "name": "山田"}]  # メモリ上のユーザー一覧（本来は DB）
 
 @app.route("/users", methods=["GET"])
 def get_users():
-    return jsonify(users)
+    return jsonify(users)              # 全ユーザーを JSON で返す
 
 @app.route("/users", methods=["POST"])
 def create_user():
-    data = request.get_json()
-    name = data.get("name", "")
-    new_id = max(u["id"] for u in users) + 1
-    users.append({"id": new_id, "name": name})
-    return jsonify({"id": new_id, "name": name}), 201
+    data = request.get_json()          # リクエストボディの JSON を辞書に変換
+    name = data.get("name", "")        # name を取得、無ければ空文字
+    new_id = max(u["id"] for u in users) + 1  # 既存 ID の最大値 + 1 を新 ID に
+    users.append({"id": new_id, "name": name})  # ユーザーを追加
+    return jsonify({"id": new_id, "name": name}), 201  # 201 Created で作成結果を返す
 ```
 
 - **request.get_json()** で JSON ボディを取得  
@@ -44,12 +44,12 @@ def create_user():
 ## エラーレスポンス
 
 ```python
-@app.route("/users/<int:user_id>")
+@app.route("/users/<int:user_id>")     # URL の数値を user_id として受け取る
 def get_user(user_id):
-    user = next((u for u in users if u["id"] == user_id), None)
-    if user is None:
-        return jsonify({"error": "Not found"}), 404
-    return jsonify(user)
+    user = next((u for u in users if u["id"] == user_id), None)  # ID でユーザーを検索
+    if user is None:                   # 見つからなかった場合
+        return jsonify({"error": "Not found"}), 404  # 404 Not Found を返す
+    return jsonify(user)               # 見つかったユーザーを JSON で返す
 ```
 
 - **404** は Not Found、**400** は Bad Request、**500** はサーバーエラー  

@@ -19,16 +19,15 @@
 ## Path の基本
 
 ```python
-from pathlib import Path
+from pathlib import Path           # pathlib から Path をインポート
 
 # 現在のディレクトリ
-p = Path(".")
+p = Path(".")                      # カレントディレクトリを表す Path
 # または絶対パス
-p = Path("/Users/username/project")
+p = Path("/Users/username/project")  # 絶対パスで Path を作成
 
 # ファイルのパス
-config_path = Path("config") / "settings.json"
-# Path 同士を / でつなげられる
+config_path = Path("config") / "settings.json"  # / でパスを連結（OS に依存しない）
 ```
 
 ---
@@ -38,23 +37,23 @@ config_path = Path("config") / "settings.json"
 ```python
 from pathlib import Path
 
-p = Path("data/config.json")
+p = Path("data/config.json")       # 相対パスで Path を作成
 
 # 存在するか
-p.exists()       # True / False
+p.exists()       # パスが存在するか True/False で返す
 
 # ファイルか、フォルダか
 p.is_file()      # ファイルなら True
-p.is_dir()       # フォルダなら True
+p.is_dir()       # ディレクトリなら True
 
-# パスの各部分
-p.name           # "config.json"
-p.stem           # "config"（拡張子なし）
-p.suffix         # ".json"
-p.parent         # "data" のパス
+# パスの各部分（属性で取得）
+p.name           # ファイル名（拡張子含む）→ "config.json"
+p.stem           # ファイル名（拡張子なし）→ "config"
+p.suffix         # 拡張子 → ".json"
+p.parent         # 親ディレクトリの Path → "data"
 
 # 絶対パスに変換
-p.resolve()
+p.resolve()      # 絶対パスに解決した Path を返す
 ```
 
 ---
@@ -87,15 +86,15 @@ p.write_bytes(data)
 ```python
 from pathlib import Path
 
-folder = Path("data")
+folder = Path("data")              # 対象フォルダの Path
 
 # 直下のファイル・フォルダ
-for item in folder.iterdir():
-    print(item.name)
+for item in folder.iterdir():      # 直下のエントリを1つずつ取得
+    print(item.name)               # 各エントリの名前を出力
 
 # 再帰的にすべて列挙
-for item in folder.rglob("*.py"):
-    print(item)
+for item in folder.rglob("*.py"):  # サブフォルダ含め *.py に一致するパスを検索
+    print(item)                    # 一致した Path を出力
 ```
 
 ---

@@ -20,12 +20,12 @@ Django の中心的な機能のひとつです。
 
 ```python
 # myapp/models.py
-from django.db import models
+from django.db import models         # Django のモデル基底クラスをインポート
 
-class User(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    created_at = models.DateTimeField(auto_now_add=True)
+class User(models.Model):            # models.Model を継承してテーブルを定義
+    name = models.CharField(max_length=100)       # 文字列フィールド（最大100文字）
+    email = models.EmailField()                   # メール形式のフィールド
+    created_at = models.DateTimeField(auto_now_add=True)  # 作成日時（自動設定）
 ```
 
 - **models.Model** を継承する  
@@ -37,10 +37,10 @@ class User(models.Model):
 
 ```bash
 # マイグレーションファイルを作成
-python manage.py makemigrations
+python manage.py makemigrations   # モデル変更を検出し、マイグレーションファイルを生成
 
 # データベースに適用
-python manage.py migrate
+python manage.py migrate          # マイグレーションを DB に反映
 ```
 
 - **makemigrations** で変更を検出し、マイグレーションファイルを作る  
@@ -54,18 +54,18 @@ python manage.py migrate
 from myapp.models import User
 
 # 作成
-user = User.objects.create(name="山田", email="yamada@example.com")
+user = User.objects.create(name="山田", email="yamada@example.com")  # 新規レコードを作成して保存
 
 # 取得
-users = User.objects.all()
-user = User.objects.get(id=1)
+users = User.objects.all()        # 全件取得（QuerySet を返す）
+user = User.objects.get(id=1)     # ID で1件取得（見つからないと DoesNotExist）
 
 # 更新
-user.name = "佐藤"
-user.save()
+user.name = "佐藤"                # 属性を変更
+user.save()                       # 変更を DB に保存
 
 # 削除
-user.delete()
+user.delete()                     # レコードを削除
 ```
 
 ---

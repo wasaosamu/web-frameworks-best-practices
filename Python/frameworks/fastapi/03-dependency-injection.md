@@ -18,15 +18,15 @@
 ## 基本的な使い方
 
 ```python
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends   # Depends で依存性を注入
 
 app = FastAPI()
 
-def get_common_value():
+def get_common_value():                # 依存として使う関数
     return "共通の値"
 
 @app.get("/items")
-def get_items(common: str = Depends(get_common_value)):
+def get_items(common: str = Depends(get_common_value)):  # get_common_value の戻り値が common に渡される
     return {"common": common}
 ```
 
@@ -39,14 +39,14 @@ def get_items(common: str = Depends(get_common_value)):
 ```python
 from fastapi import FastAPI, Depends, HTTPException
 
-def get_current_user(token: str = Header(None)):
-    if token != "secret":
-        raise HTTPException(status_code=401, detail="認証が必要です")
-    return {"user_id": 1}
+def get_current_user(token: str = Header(None)):  # ヘッダーから token を取得
+    if token != "secret":                         # トークンが不正な場合
+        raise HTTPException(status_code=401, detail="認証が必要です")  # 401 を返す
+    return {"user_id": 1}                         # 認証成功時はユーザー情報を返す
 
 @app.get("/me")
-def get_me(user = Depends(get_current_user)):
-    return user
+def get_me(user = Depends(get_current_user)):     # このルートは get_current_user が必須
+    return user                                   # 認証済みユーザー情報を返す
 ```
 
 - 認証用の関数を **Depends** に渡すと、そのルートだけ認証が必要になる  

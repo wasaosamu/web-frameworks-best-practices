@@ -22,13 +22,13 @@ Python には **venv** が標準で入っています。
 
 ```bash
 # 仮想環境を作る（myproject フォルダ内で実行する想定）
-python -m venv venv
+python -m venv venv        # venv モジュールで venv という名前の仮想環境を作成
 
 # 有効化（Windows）
-venv\Scripts\activate
+venv\Scripts\activate      # Windows では Scripts 内の activate を実行
 
 # 有効化（macOS / Linux）
-source venv/bin/activate
+source venv/bin/activate   # macOS/Linux では bin 内の activate を source で読み込む
 ```
 
 - **venv** は仮想環境用のフォルダ名（任意。`env` や `.venv` でもよい）  
@@ -39,7 +39,7 @@ source venv/bin/activate
 ## 仮想環境の無効化
 
 ```bash
-deactivate
+deactivate                 # 仮想環境を無効化し、元の環境に戻る
 ```
 
 ---
@@ -70,7 +70,7 @@ requests>=2.28.0
 ## インストール済みパッケージを書き出す
 
 ```bash
-pip freeze > requirements.txt
+pip freeze > requirements.txt   # インストール済みパッケージ一覧をファイルに書き出す
 ```
 
 - 今入っているパッケージとバージョンが、`requirements.txt` に書き出される  

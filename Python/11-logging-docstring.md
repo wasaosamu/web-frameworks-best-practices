@@ -19,15 +19,15 @@
 ## ロギングの基本
 
 ```python
-import logging
+import logging                        # 標準ライブラリの logging をインポート
 
 # レベルを設定（DEBUG 以上を出力する）
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)  # INFO レベル以上を出力するよう設定
 
-logging.debug("詳細な情報")
-logging.info("通常の情報")
-logging.warning("警告")
-logging.error("エラー")
+logging.debug("詳細な情報")    # DEBUG: デバッグ用（INFO より下なので通常は出ない）
+logging.info("通常の情報")     # INFO: 通常の情報
+logging.warning("警告")        # WARNING: 警告メッセージ
+logging.error("エラー")        # ERROR: エラーメッセージ
 ```
 
 | レベル | 意味 |
@@ -68,7 +68,7 @@ def add(a: int, b: int) -> int:
 ```python
 def greet(name: str) -> str:
     """名前を受け取り、挨拶文を返す。"""
-    return f"こんにちは、{name} さん"
+    return f"こんにちは、{name} さん"  # f文字列で変数を埋め込んだ文字列を返す
 ```
 
 - 1行で書く場合も、3行の `"""` で囲む  

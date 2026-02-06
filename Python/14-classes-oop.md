@@ -20,13 +20,12 @@
 
 ```python
 class User:
-    def __init__(self, name: str, age: int):
-        # __init__ は「インスタンスを作るときに呼ばれる」特別なメソッド
-        self.name = name  # self は「このインスタンス自身」を指す
-        self.age = age
+    def __init__(self, name: str, age: int):  # コンストラクタ（インスタンス作成時に呼ばれる）
+        self.name = name    # 引数をインスタンスの属性として保存（self は自分自身）
+        self.age = age      # 同様に年齢を保存
 
-    def greet(self) -> str:
-        return f"こんにちは、{self.name} さん"
+    def greet(self) -> str:  # 挨拶メソッド
+        return f"こんにちは、{self.name} さん"  # 自分の name 属性を使って挨拶文を返す
 ```
 
 - **self** は、そのインスタンス自身を指す（必ず第1引数に書く）  
@@ -52,12 +51,12 @@ print(user.greet()) # こんにちは、山田 さん
 **継承**は、既存のクラスをベースに新しいクラスを作る仕組みです。
 
 ```python
-class AdminUser(User):
+class AdminUser(User):      # User を継承したサブクラス
     def __init__(self, name: str, age: int):
-        super().__init__(name, age)  # 親クラスの __init__ を呼ぶ
+        super().__init__(name, age)  # 親クラス（User）の __init__ を呼んで初期化
 
-    def greet(self) -> str:
-        return f"管理者の {self.name} です"
+    def greet(self) -> str:  # 親の greet をオーバーライド
+        return f"管理者の {self.name} です"  # 管理者用の挨拶文を返す
 ```
 
 - **AdminUser(User)** で User を継承  

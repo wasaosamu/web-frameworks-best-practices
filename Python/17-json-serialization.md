@@ -19,15 +19,15 @@ API とのやり取りや設定ファイルの読み書きを、初心者向け�
 ## 辞書・リストを JSON に変換する
 
 ```python
-import json
+import json                        # 標準ライブラリの json をインポート
 
 data = {
-    "name": "山田",
+    "name": "山田",                # 辞書でデータを定義
     "age": 25,
-    "hobbies": ["読書", "散歩"]
+    "hobbies": ["読書", "散歩"]    # ネスト（リスト内包）も可能
 }
 
-json_str = json.dumps(data)
+json_str = json.dumps(data)        # Python オブジェクトを JSON 文字列に変換
 # 結果: '{"name": "山田", "age": 25, "hobbies": ["読書", "散歩"]}'
 ```
 
@@ -52,12 +52,12 @@ print(data["name"])  # 山田
 
 ```python
 # ファイルに書き出す
-with open("data.json", "w", encoding="utf-8") as f:
-    json.dump(data, f, ensure_ascii=False, indent=2)
+with open("data.json", "w", encoding="utf-8") as f:  # 書き込みモードで開く
+    json.dump(data, f, ensure_ascii=False, indent=2)  # ファイルに出力（日本語そのまま、2スペースでインデント）
 
 # ファイルから読み込む
-with open("data.json", "r", encoding="utf-8") as f:
-    loaded = json.load(f)
+with open("data.json", "r", encoding="utf-8") as f:  # 読み込みモードで開く
+    loaded = json.load(f)                            # ファイルから JSON を読み込み辞書に変換
 ```
 
 - **json.dump()** / **json.load()** はファイル用  

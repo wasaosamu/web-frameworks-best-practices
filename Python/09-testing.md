@@ -22,20 +22,20 @@ pytest と unittest の基本を、初心者向けに説明します。
 
 ```python
 # test_calc.py
-import unittest
+import unittest              # 標準ライブラリのテストフレームワークをインポート
 
-def add(a, b):
+def add(a, b):               # テスト対象の関数
     return a + b
 
-class TestAdd(unittest.TestCase):
-    def test_add_positive(self):
-        self.assertEqual(add(2, 3), 5)
+class TestAdd(unittest.TestCase):  # TestCase を継承したテストクラス
+    def test_add_positive(self):   # 正の数同士の加算テスト
+        self.assertEqual(add(2, 3), 5)  # add(2, 3) が 5 と等しいことを検証
 
-    def test_add_zero(self):
-        self.assertEqual(add(0, 5), 5)
+    def test_add_zero(self):       # 0 を含む加算テスト
+        self.assertEqual(add(0, 5), 5)  # add(0, 5) が 5 と等しいことを検証
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__":   # 直接実行されたときのみ
+    unittest.main()          # テストを実行
 ```
 
 - **TestCase** を継承したクラスに、`test_` で始まるメソッドを書く  
@@ -46,9 +46,9 @@ if __name__ == "__main__":
 ## 実行方法
 
 ```bash
-python test_calc.py
+python test_calc.py          # テストファイルを直接実行
 # または
-python -m unittest test_calc
+python -m unittest test_calc # unittest モジュール経由で test_calc を実行
 ```
 
 ---
@@ -58,19 +58,19 @@ python -m unittest test_calc
 **pytest** は、**より簡単にテストを書ける**ライブラリです。
 
 ```bash
-pip install pytest
+pip install pytest           # pytest を pip でインストール
 ```
 
 ```python
 # test_calc.py
-def add(a, b):
+def add(a, b):               # テスト対象の関数
     return a + b
 
-def test_add_positive():
-    assert add(2, 3) == 5
+def test_add_positive():     # test_ で始まる関数がテストとして実行される
+    assert add(2, 3) == 5    # add(2, 3) が 5 であることを検証
 
 def test_add_zero():
-    assert add(0, 5) == 5
+    assert add(0, 5) == 5    # add(0, 5) が 5 であることを検証
 ```
 
 - **test_** で始まる関数がテストとして実行される  
@@ -81,9 +81,9 @@ def test_add_zero():
 ## 実行方法
 
 ```bash
-pytest test_calc.py
+pytest test_calc.py          # 指定ファイルのテストを実行
 # または（カレントフォルダ内の test_*.py をすべて実行）
-pytest
+pytest                       # テストを自動検出して実行
 ```
 
 ---

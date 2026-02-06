@@ -9,11 +9,11 @@ Flask に近い書き方で、簡単な Web アプリを作る基本です。
 ## テンプレートの使い方
 
 ```python
-from bottle import route, run, template
+from bottle import route, run, template   # template をインポート
 
-@route("/hello/<name>")
+@route("/hello/<name>")                   # <name> は URL の一部を変数として受け取る
 def hello(name):
-    return template("hello", name=name)
+    return template("hello", name=name)   # hello.tpl に name を渡して描画
 ```
 
 - **template("ファイル名", 変数=値)** でテンプレートを描画する  
@@ -47,16 +47,16 @@ myapp/
 ## リクエストの取得
 
 ```python
-from bottle import route, run, request
+from bottle import route, run, request   # request でリクエスト情報を取得
 
 @route("/search")
 def search():
-    keyword = request.query.get("keyword", "")
+    keyword = request.query.get("keyword", "")  # GET パラメータ（?keyword=〇〇）を取得
     return f"検索: {keyword}"
 
-@route("/login", method="POST")
+@route("/login", method="POST")          # POST メソッドのみ受け付ける
 def login():
-    username = request.forms.get("username", "")
+    username = request.forms.get("username", "")  # POST フォームの username を取得
     return f"ログイン: {username}"
 ```
 

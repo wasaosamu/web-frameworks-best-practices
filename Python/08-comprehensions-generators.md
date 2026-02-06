@@ -12,12 +12,12 @@ Python の**便利な書き方**を学びます。
 
 ```python
 # 通常の書き方
-squares = []
-for x in range(5):
-    squares.append(x * x)
+squares = []              # 空のリストを用意
+for x in range(5):        # 0〜4 をループ
+    squares.append(x * x) # 二乗をリストに追加
 
-# リスト内包表記
-squares = [x * x for x in range(5)]
+# リスト内包表記（同じ処理を1行で書く）
+squares = [x * x for x in range(5)]  # range(5) の各 x に対して x*x を集めたリスト
 # 結果: [0, 1, 4, 9, 16]
 ```
 
@@ -25,8 +25,8 @@ squares = [x * x for x in range(5)]
 - 条件を付けたいときは `[式 for 変数 in イテラブル if 条件]`  
 
 ```python
-# 偶数だけにする
-evens = [x for x in range(10) if x % 2 == 0]
+# 偶数だけにする（if で条件を付けたリスト内包表記）
+evens = [x for x in range(10) if x % 2 == 0]  # 0〜9 のうち 2 で割り切れるものだけ
 # 結果: [0, 2, 4, 6, 8]
 ```
 
@@ -36,8 +36,8 @@ evens = [x for x in range(10) if x % 2 == 0]
 
 ```python
 # キーと値のペアから辞書を作る
-names = ["山田", "佐藤", "鈴木"]
-user_ids = {name: i for i, name in enumerate(names)}
+names = ["山田", "佐藤", "鈴木"]  # 元のリスト
+user_ids = {name: i for i, name in enumerate(names)}  # enumerate でインデックスと要素を取得し、名前:インデックス の辞書を作成
 # 結果: {"山田": 0, "佐藤": 1, "鈴木": 2}
 ```
 
@@ -48,14 +48,14 @@ user_ids = {name: i for i, name in enumerate(names)}
 **ジェネレータ**は、**1つずつ値を返す**仕組みです。メモリを節約できます。
 
 ```python
-def count_up(n):
+def count_up(n):          # ジェネレータ関数（yield を使う）
     i = 0
     while i < n:
-        yield i  # yield で1つずつ返す
-        i += 1
+        yield i           # yield で1つずつ値を返す（一時停止して再開可能）
+        i += 1            # 次のループ用にインクリメント
 
-for x in count_up(5):
-    print(x)  # 0, 1, 2, 3, 4
+for x in count_up(5):     # ジェネレータから順に値を取り出す
+    print(x)              # 0, 1, 2, 3, 4 を順に出力
 ```
 
 - **yield** を使うと、その関数はジェネレータになる  
@@ -68,10 +68,10 @@ for x in count_up(5):
 **with 文**は、**リソースの開閉を安全に扱う**ための書き方です。
 
 ```python
-# ファイルを開いて、終わったら自動で閉じる
-with open("file.txt", "r") as f:
-    content = f.read()
-# ブロックを出たら、自動で f.close() が呼ばれる
+# ファイルを開いて、終わったら自動で閉じる（with 文）
+with open("file.txt", "r") as f:  # ファイルを開き、f にバインド（"r" は読み込みモード）
+    content = f.read()            # ファイル内容を読み込む
+# ブロックを出たら、自動で f.close() が呼ばれる（エラー時も閉じられる）
 ```
 
 - ファイルやデータベース接続など、「開いたら必ず閉じる」ものに使う  

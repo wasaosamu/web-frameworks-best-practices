@@ -19,9 +19,9 @@
 ## 関数の書き方
 
 ```python
-def 関数名(引数1, 引数2):
+def 関数名(引数1, 引数2):  # def で関数を定義、引数を括弧内に記述
     # 処理を書く
-    return 戻り値
+    return 戻り値          # return で呼び出し元に値を返す
 ```
 
 - **def** は「関数を定義する」という意味  
@@ -33,11 +33,11 @@ def 関数名(引数1, 引数2):
 ## 引数なし・戻り値なしの関数
 
 ```python
-def greet():
-    print("こんにちは")
+def greet():              # 引数なしの関数定義
+    print("こんにちは")   # 文字列を出力する処理
 
 # 呼び出す
-greet()  # こんにちは と出力される
+greet()                   # 関数を呼び出し → こんにちは と出力される
 ```
 
 ---
@@ -45,10 +45,10 @@ greet()  # こんにちは と出力される
 ## 引数ありの関数
 
 ```python
-def greet(name):
-    print("こんにちは、", name, "さん")
+def greet(name):          # name を引数として受け取る
+    print("こんにちは、", name, "さん")  # 引数を使ってメッセージを出力
 
-greet("山田")  # こんにちは、 山田 さん
+greet("山田")             # 引数 "山田" を渡して呼び出し → こんにちは、 山田 さん
 ```
 
 ---
@@ -56,12 +56,12 @@ greet("山田")  # こんにちは、 山田 さん
 ## 戻り値ありの関数
 
 ```python
-def add(a, b):
-    result = a + b
-    return result
+def add(a, b):            # 2つの引数 a, b を受け取る
+    result = a + b        # 加算結果を変数に格納
+    return result         # 結果を呼び出し元に返す
 
-sum = add(3, 5)
-print(sum)  # 8
+sum = add(3, 5)           # 戻り値を変数に代入
+print(sum)                # 8 を出力
 ```
 
 ---
@@ -71,11 +71,11 @@ print(sum)  # 8
 **デフォルト引数**を使うと、引数を省略したときの値を決められます。
 
 ```python
-def greet(name, message="こんにちは"):
-    print(message, "、", name, "さん")
+def greet(name, message="こんにちは"):  # message は省略時 "こんにちは"
+    print(message, "、", name, "さん")  # 引数を使ってメッセージを出力
 
-greet("山田")           # こんにちは 、 山田 さん
-greet("佐藤", "おはよう")  # おはよう 、 佐藤 さん
+greet("山田")              # message を省略 → こんにちは 、 山田 さん
+greet("佐藤", "おはよう")  # message を指定 → おはよう 、 佐藤 さん
 ```
 
 ---
@@ -86,22 +86,20 @@ greet("佐藤", "おはよう")  # おはよう 、 佐藤 さん
 各行にコメントを付けています。
 
 ```python
-def show_user(name, age):
-    # ユーザー情報を表示する関数
-    print("名前:", name)
-    print("年齢:", age)
+def show_user(name, age):   # ユーザー情報を表示する関数
+    print("名前:", name)    # 名前を出力
+    print("年齢:", age)     # 年齢を出力
 
-def is_adult(age):
-    # 20歳以上なら True を返す
-    return age >= 20
+def is_adult(age):          # 20歳以上か判定する関数
+    return age >= 20        # 比較結果の True/False を返す
 
 # 使う
-show_user("山田", 25)
+show_user("山田", 25)       # show_user を呼び出して情報を表示
 # 名前: 山田
 # 年齢: 25
 
-result = is_adult(25)
-print(result)  # True
+result = is_adult(25)       # is_adult の戻り値を result に代入
+print(result)               # True を出力
 ```
 
 ---

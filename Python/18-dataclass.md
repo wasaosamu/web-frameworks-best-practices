@@ -19,17 +19,17 @@ Python 3.7 以降で使える機能です。
 ## 基本的な書き方
 
 ```python
-from dataclasses import dataclass
+from dataclasses import dataclass   # dataclass デコレータをインポート
 
-@dataclass
+@dataclass                         # デコレータでデータクラスとして定義
 class User:
-    name: str
+    name: str                      # 型ヒントでフィールドを定義
     age: int
 
 # 自動で __init__ が作られる
-user = User("山田", 25)
-print(user.name)  # 山田
-print(user)       # User(name='山田', age=25)
+user = User("山田", 25)            # 引数でインスタンスを作成
+print(user.name)                   # 属性にアクセス → 山田
+print(user)                        # __repr__ も自動生成 → User(name='山田', age=25)
 ```
 
 - **@dataclass** を付けるだけで、コンストラクタや文字列化が自動で用意される  
@@ -42,9 +42,9 @@ print(user)       # User(name='山田', age=25)
 @dataclass
 class User:
     name: str
-    age: int = 0  # デフォルト値
+    age: int = 0  # デフォルト値（省略時は 0）
 
-user = User("山田")  # age は 0 になる
+user = User("山田")  # age を省略 → age は 0 になる
 ```
 
 - デフォルト値があるフィールドは、**後ろに書く**必要がある  

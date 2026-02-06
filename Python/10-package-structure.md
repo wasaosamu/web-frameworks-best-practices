@@ -41,8 +41,8 @@ myproject/
 ```python
 # utils/__init__.py（空でよい場合）
 # または、よく使う関数をここから export する場合
-from .helpers import format_name
-__all__ = ["format_name"]
+from .helpers import format_name   # 同じパッケージ内の helpers から format_name をインポート
+__all__ = ["format_name"]          # from utils import * で export する名前を指定
 ```
 
 ---
@@ -51,15 +51,15 @@ __all__ = ["format_name"]
 
 ```python
 # モジュールごと import
-import utils.helpers
-result = utils.helpers.format_name("山田")
+import utils.helpers                  # utils.helpers モジュール全体をインポート
+result = utils.helpers.format_name("山田")  # モジュール名.関数名 で呼び出す
 
 # 特定の関数だけ import
-from utils.helpers import format_name
-result = format_name("山田")
+from utils.helpers import format_name # 関数だけをインポート
+result = format_name("山田")          # 関数名だけで呼び出せる
 
 # パッケージから import（__init__.py で export している場合）
-from utils import format_name
+from utils import format_name         # __init__.py で export した名前でインポート
 ```
 
 ---

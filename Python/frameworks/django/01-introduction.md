@@ -23,7 +23,7 @@ Flask より「最初に揃っているものが多い」分、覚えること�
 Django を使うには、まずインストールします。
 
 ```bash
-pip install django
+pip install django          # Django を pip でインストール
 ```
 
 ---
@@ -33,8 +33,8 @@ pip install django
 **プロジェクト**は、アプリ全体の「箱」のようなものです。
 
 ```bash
-django-admin startproject myproject
-cd myproject
+django-admin startproject myproject   # プロジェクトのフォルダとファイルを生成
+cd myproject                          # プロジェクトフォルダに移動
 ```
 
 - **myproject** の部分は、好きな名前でよい  
@@ -80,10 +80,10 @@ python manage.py startapp myapp
 
 ```python
 # myapp/views.py
-from django.http import HttpResponse
+from django.http import HttpResponse   # レスポンス用クラスをインポート
 
-def index(request):
-    return HttpResponse("Hello, World!")
+def index(request):                    # ビュー関数（request にリクエスト情報が入る）
+    return HttpResponse("Hello, World!")  # 返した文字列がレスポンスとして返される
 ```
 
 - **request** は、ブラウザから送られたリクエストの情報  
@@ -100,8 +100,8 @@ from django.urls import path
 from myapp import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.index),  # / にアクセスしたら views.index を実行
+    path("admin/", admin.site.urls),   # 管理画面の URL
+    path("", views.index),             # ルート "/" にアクセスしたら views.index を実行
 ]
 ```
 
@@ -123,7 +123,7 @@ INSTALLED_APPS = [
 ## サーバーを起動する
 
 ```bash
-python manage.py runserver
+python manage.py runserver    # 開発サーバーを起動（デフォルト 8000 番ポート）
 ```
 
 - ブラウザで `http://127.0.0.1:8000/` を開くと、「Hello, World!」が表示される  

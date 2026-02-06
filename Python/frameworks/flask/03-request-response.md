@@ -9,20 +9,18 @@
 ## リクエストの取得
 
 ```python
-from flask import Flask, request
+from flask import Flask, request   # request でリクエスト情報を取得
 
 app = Flask(__name__)
 
 @app.route("/search")
 def search():
-    # GET パラメータ（?keyword=〇〇）
-    keyword = request.args.get("keyword", "")
+    keyword = request.args.get("keyword", "")  # GET パラメータ（?keyword=〇〇）を取得、無ければ ""
     return f"検索: {keyword}"
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["POST"])  # POST のみ受け付ける
 def login():
-    # POST のフォームデータ
-    username = request.form.get("username", "")
+    username = request.form.get("username", "")  # POST フォームの username を取得
     return f"ログイン: {username}"
 ```
 
@@ -58,13 +56,13 @@ return redirect("/")
 ## HTTP メソッドの指定
 
 ```python
-@app.route("/users", methods=["GET"])
+@app.route("/users", methods=["GET"])   # GET リクエストのみ受け付ける
 def get_users():
-    return jsonify([])
+    return jsonify([])                  # 空のリストを JSON で返す
 
-@app.route("/users", methods=["POST"])
+@app.route("/users", methods=["POST"])  # POST リクエストのみ受け付ける
 def create_user():
-    return jsonify({"id": 1})
+    return jsonify({"id": 1})           # 作成結果を JSON で返す
 ```
 
 - **methods=["GET", "POST"]** で受け付けるメソッドを指定する  

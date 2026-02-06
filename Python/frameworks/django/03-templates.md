@@ -20,14 +20,14 @@
 
 ```python
 # myapp/views.py
-from django.shortcuts import render
+from django.shortcuts import render   # テンプレート描画用の render をインポート
 
 def index(request):
-    context = {
+    context = {                       # テンプレートに渡す変数の辞書
         "name": "山田",
         "items": ["りんご", "みかん", "ばなな"]
     }
-    return render(request, "index.html", context)
+    return render(request, "index.html", context)  # テンプレートに context を渡して描画
 ```
 
 - **render(request, "テンプレート名", 辞書)** でテンプレートを描画する  
@@ -61,18 +61,18 @@ def index(request):
 ## テンプレートの継承
 
 ```html
-<!-- base.html -->
+<!-- base.html（ベーステンプレート） -->
 <html>
-<head><title>{% block title %}サイト{% endblock %}</title></head>
+<head><title>{% block title %}サイト{% endblock %}</title></head>  <!-- block で上書き可能な部分を定義 -->
 <body>
   {% block content %}
   {% endblock %}
 </body>
 </html>
 
-<!-- index.html -->
-{% extends "base.html" %}
-{% block content %}
+<!-- index.html（子テンプレート） -->
+{% extends "base.html" %}           <!-- ベーステンプレートを継承 -->
+{% block content %}                 <!-- content ブロックを上書き -->
   <h1>メインの内容</h1>
 {% endblock %}
 ```

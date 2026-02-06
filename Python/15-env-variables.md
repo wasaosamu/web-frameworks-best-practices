@@ -19,13 +19,13 @@
 ## 環境変数の読み方（os.environ）
 
 ```python
-import os
+import os                       # 標準ライブラリの os をインポート
 
 # 環境変数を読む
-api_key = os.environ.get("API_KEY")
+api_key = os.environ.get("API_KEY")  # 環境変数を取得（未設定なら None）
 
-if api_key is None:
-    raise ValueError("API_KEY が設定されていません")
+if api_key is None:             # 未設定の場合
+    raise ValueError("API_KEY が設定されていません")  # エラーを発生させる
 ```
 
 - **os.environ.get("名前")** で環境変数を取得。なければ **None**  
@@ -38,22 +38,22 @@ if api_key is None:
 **.env** ファイルに変数を書いて、プログラムから読み込む方法です。
 
 ```bash
-pip install python-dotenv
+pip install python-dotenv   # .env ファイルを読み込むライブラリをインストール
 ```
 
 ```python
-# .env ファイルの例:
+# .env ファイルの例（キー=値 の形式で1行ずつ記述）:
 # API_KEY=sk_xxxxxxxx
 # DATABASE_URL=postgresql://localhost/mydb
 ```
 
 ```python
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # dotenv から load_dotenv をインポート
 import os
 
-load_dotenv()  # .env を読み込む
+load_dotenv()                   # プロジェクトルートの .env を読み込み、環境変数にセット
 
-api_key = os.environ.get("API_KEY")
+api_key = os.environ.get("API_KEY")  # 読み込んだ環境変数から API_KEY を取得
 ```
 
 - **load_dotenv()** で、プロジェクトのルートにある .env を読み込む  

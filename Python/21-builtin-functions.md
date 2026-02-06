@@ -12,14 +12,14 @@
 
 ```python
 # 各要素を2倍にする
-numbers = [1, 2, 3, 4, 5]
-doubled = list(map(lambda x: x * 2, numbers))
+numbers = [1, 2, 3, 4, 5]                    # 元のリスト
+doubled = list(map(lambda x: x * 2, numbers))  # map: 各要素に lambda を適用し、list に変換
 # [2, 4, 6, 8, 10]
 
 # 関数を渡す場合
 def double(x):
-    return x * 2
-doubled = list(map(double, numbers))
+    return x * 2                              # 2倍して返す関数
+doubled = list(map(double, numbers))          # 関数オブジェクトを渡すこともできる
 ```
 
 - **map(関数, イテラブル)** の形  
@@ -33,10 +33,10 @@ doubled = list(map(double, numbers))
 numbers = [1, 2, 3, 4, 5]
 
 # map を使う場合
-doubled = list(map(lambda x: x * 2, numbers))
+doubled = list(map(lambda x: x * 2, numbers))  # map で各要素を2倍
 
 # リスト内包表記（同じ結果）
-doubled = [x * 2 for x in numbers]
+doubled = [x * 2 for x in numbers]             # 内包表記で同じ処理を記述
 ```
 
 - 簡単な変換なら**リスト内包表記**の方が読みやすいことも多い  
@@ -52,7 +52,7 @@ doubled = [x * 2 for x in numbers]
 numbers = [1, 2, 3, 4, 5, 6]
 
 # 偶数だけ残す
-evens = list(filter(lambda x: x % 2 == 0, numbers))
+evens = list(filter(lambda x: x % 2 == 0, numbers))  # 条件が True の要素だけを残す
 # [2, 4, 6]
 ```
 
@@ -70,12 +70,12 @@ names = ["山田", "佐藤", "鈴木"]
 ages = [25, 30, 22]
 
 # ペアにする
-pairs = list(zip(names, ages))
+pairs = list(zip(names, ages))     # 同じインデックスの要素をタプルでまとめる
 # [("山田", 25), ("佐藤", 30), ("鈴木", 22)]
 
 # for で回す
-for name, age in zip(names, ages):
-    print(f"{name}: {age}歳")
+for name, age in zip(names, ages):  # zip で2つのリストを同時にイテレート
+    print(f"{name}: {age}歳")       # f文字列でフォーマットして出力
 ```
 
 - 長さが違うときは、**短い方に合わせて**止まる  

@@ -21,7 +21,7 @@
 ## インストール
 
 ```bash
-pip install bottle
+pip install bottle   # Bottle を pip でインストール
 ```
 
 ---
@@ -49,7 +49,7 @@ run(host="localhost", port=8080)
 ## 実行方法
 
 ```bash
-python app.py
+python app.py              # アプリを直接実行してサーバー起動
 ```
 
 - ブラウザで `http://localhost:8080` を開くと、「Hello, World!」が表示される  

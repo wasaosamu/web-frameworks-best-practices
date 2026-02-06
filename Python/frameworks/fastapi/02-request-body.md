@@ -20,18 +20,18 @@ Pydantic モデルで型を定義し、バリデーションを効かせるの�
 
 ```python
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel   # Pydantic の BaseModel をインポート
 
 app = FastAPI()
 
-class UserCreate(BaseModel):
-    name: str
-    email: str
-    age: int = 0  # デフォルト値
+class UserCreate(BaseModel):     # リクエストボディの形を定義
+    name: str                    # 必須の文字列フィールド
+    email: str                   # 必須の文字列フィールド
+    age: int = 0                 # オプション、デフォルト 0
 
 @app.post("/users")
-def create_user(user: UserCreate):
-    return {"message": f"{user.name} を作成しました", "email": user.email}
+def create_user(user: UserCreate):  # 型を指定すると自動でパース・バリデーションされる
+    return {"message": f"{user.name} を作成しました", "email": user.email}  # user の属性にアクセス
 ```
 
 - **BaseModel** を継承したクラスで、受け取るデータの形を定義する  

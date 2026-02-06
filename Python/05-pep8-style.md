@@ -45,13 +45,13 @@ Python の**コーディング規約**（PEP 8）と、コードを自動で整�
 
 ```bash
 # インストール
-pip install black
+pip install black          # Black を pip でインストール
 
 # ファイルを整形する
-black example.py
+black example.py           # 指定ファイルを PEP 8 に沿って自動整形
 
 # フォルダ内の .py ファイルを一括整形
-black .
+black .                    # カレントディレクトリ以下を一括整形
 ```
 
 - 実行すると、その場でファイルが書き換えられる  
@@ -65,13 +65,13 @@ black .
 
 ```bash
 # インストール
-pip install ruff
+pip install ruff           # Ruff を pip でインストール
 
 # フォーマット（Black 互換）
-ruff format example.py
+ruff format example.py     # Black 互換でコードを整形
 
 # リント（問題を指摘）
-ruff check example.py
+ruff check example.py      # バグの兆候やスタイル違反を検出
 ```
 
 - **format** で整形、**check** でバグの兆候やスタイル違反を検出  

@@ -21,7 +21,7 @@ Flask より「API 特化」で、型ヒントと相性が良いのが特徴で�
 ## インストール
 
 ```bash
-pip install fastapi uvicorn
+pip install fastapi uvicorn   # FastAPI と ASGI サーバー uvicorn をインストール
 ```
 
 - **uvicorn** は、FastAPI を動かすための ASGI サーバー  
@@ -59,7 +59,7 @@ def get_user(user_id: int):
 ## 実行方法
 
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --reload     # main.py の app を起動、--reload でコード変更時に自動再起動
 ```
 
 - **main** はファイル名、**app** は FastAPI の変数名  

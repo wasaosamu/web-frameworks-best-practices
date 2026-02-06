@@ -19,7 +19,7 @@
 ## 管理者ユーザーの作成
 
 ```bash
-python manage.py createsuperuser
+python manage.py createsuperuser    # 管理画面用の管理者ユーザーを作成
 ```
 
 - ユーザー名、メール、パスワードを入力する  
@@ -34,10 +34,10 @@ python manage.py createsuperuser
 from django.contrib import admin
 from .models import User
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ["name", "email", "created_at"]
-    search_fields = ["name", "email"]
+@admin.register(User)               # User モデルを管理画面に登録
+class UserAdmin(admin.ModelAdmin):  # 表示のカスタマイズ用クラス
+    list_display = ["name", "email", "created_at"]  # 一覧に表示する列を指定
+    search_fields = ["name", "email"]               # 検索対象のフィールドを指定
 ```
 
 - **@admin.register(モデル)** でモデルを登録する  

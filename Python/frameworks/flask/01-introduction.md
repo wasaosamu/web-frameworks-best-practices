@@ -21,7 +21,7 @@
 Flask を使うには、まずインストールします。
 
 ```bash
-pip install flask
+pip install flask          # Flask を pip でインストール
 ```
 
 - **pip** は、Python のパッケージをインストールするツール  
@@ -36,22 +36,16 @@ pip install flask
 
 ```python
 # ファイル名の例: app.py
-from flask import Flask
-# Flask というクラスを読み込む
+from flask import Flask    # Flask クラスをインポート
 
-app = Flask(__name__)
-# Flask アプリの「本体」を作る。app という変数に格納する
+app = Flask(__name__)      # アプリ本体を作成（__name__ でモジュール名を渡す）
 
-@app.route("/")
-# 「/ という URL にアクセスされたとき」という意味
-
+@app.route("/")            # ルート URL "/" にアクセスされたときの処理を紐付け
 def index():
-    # この関数が実行される
-    return "Hello, World!"
+    return "Hello, World!" # 返した文字列がレスポンスとして表示される
 
-if __name__ == "__main__":
-    # このファイルを直接実行したときだけ、サーバーを起動する
-    app.run(debug=True)
+if __name__ == "__main__": # 直接実行されたときのみ（import 時は実行しない）
+    app.run(debug=True)    # 開発サーバーを起動（debug=True で自動リロード有効）
 ```
 
 ---
@@ -106,7 +100,7 @@ def user(name):
 ## 実行方法
 
 ```bash
-python app.py
+python app.py              # アプリを起動（Flask 開発サーバーが立ち上がる）
 ```
 
 - ブラウザで `http://127.0.0.1:5000/` を開くと、アプリが表示される  

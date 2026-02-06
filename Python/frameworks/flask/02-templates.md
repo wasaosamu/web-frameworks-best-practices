@@ -30,13 +30,13 @@ myapp/
 ## テンプレートの描画
 
 ```python
-from flask import Flask, render_template
+from flask import Flask, render_template  # render_template をインポート
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html", name="山田")
+    return render_template("index.html", name="山田")  # テンプレートに name 変数を渡して描画
 ```
 
 - **render_template("ファイル名", 変数名=値)** でテンプレートを描画する  
@@ -64,15 +64,15 @@ def index():
 ## 条件分岐とループ
 
 ```html
-{% if name %}
+{% if name %}                      <!-- name が存在する場合 -->
   <p>こんにちは、{{ name }} さん</p>
-{% else %}
+{% else %}                         <!-- name が無い場合 -->
   <p>こんにちは、ゲストさん</p>
 {% endif %}
 
 <ul>
-{% for item in items %}
-  <li>{{ item }}</li>
+{% for item in items %}            <!-- items をループ -->
+  <li>{{ item }}</li>              <!-- 各 item をリスト表示 -->
 {% endfor %}
 </ul>
 ```

@@ -15,16 +15,16 @@ Python で、読みやすく保守しやすいコードを書くための**考�
 - **定数**（変わらない値）は大文字（`MAX_COUNT`、`API_URL`）  
 
 ```python
-# よい例
-user_name = "山田"
-item_count = 10
+# よい例（役割が分かる名前）
+user_name = "山田"           # ユーザー名であることが明確
+item_count = 10              # アイテムの件数であることが明確
 
-def get_user_by_id(user_id):
-    pass
+def get_user_by_id(user_id): # 関数名で「IDからユーザーを取得」と分かる
+    pass                     # 未実装（プレースホルダ）
 
 # 避けたい例（何を表しているか分かりにくい）
-a = "山田"
-x = 10
+a = "山田"                   # 何のデータか不明
+x = 10                       # 何の数値か不明
 ```
 
 ---
@@ -39,8 +39,8 @@ x = 10
 
 ```python
 # ユーザーが20歳以上かどうかをチェック（法律に基づく）
-if age >= 20:
-    allow_purchase = True
+if age >= 20:                # 年齢が20以上か判定
+    allow_purchase = True    # 購入を許可するフラグを立てる
 ```
 
 ---
@@ -54,17 +54,15 @@ if age >= 20:
 
 ```python
 # よい例：役割が分かれている
-def validate_email(email):
-    return "@" in email
+def validate_email(email):   # メール形式の検証だけに専念
+    return "@" in email      # @ を含むかどうかで簡易チェック
 
-def save_user(name, email):
-    # 保存処理
-    pass
+def save_user(name, email):  # ユーザー保存だけに専念
+    pass                     # 保存処理（未実装）
 
 # 避けたい例：1つの関数に全部詰め込み
-def do_everything(name, email):
-    # 検証も保存も全部ここに...
-    pass
+def do_everything(name, email):  # 役割が多すぎて把握しにくい
+    pass                         # 検証も保存も全部ここに書くことになる
 ```
 
 ---
@@ -75,9 +73,9 @@ def do_everything(name, email):
 
 ```python
 try:
-    number = int(user_input)  # 文字列を数値に変換
-except ValueError:
-    print("数値を入力してください")
+    number = int(user_input)  # 文字列を数値に変換（失敗すると ValueError）
+except ValueError:           # 変換に失敗した場合の例外を捕捉
+    print("数値を入力してください")  # ユーザーにエラーメッセージを表示
 ```
 
 - エラーを**握りつぶさず**、ユーザーに伝えるかログに残す  
@@ -91,14 +89,14 @@ except ValueError:
 - 関連する処理のまとまりの間に**空行**を入れると読みやすくなる  
 
 ```python
-def process_user(user):
-    name = user["name"]
-    age = user["age"]
+def process_user(user):      # ユーザー辞書を受け取る
+    name = user["name"]      # 辞書から名前を取得
+    age = user["age"]        # 辞書から年齢を取得
 
-    if age >= 20:
-        return "成人"
+    if age >= 20:            # 20歳以上か判定
+        return "成人"        # 成人と判定して返す
     else:
-        return "未成年"
+        return "未成年"      # 未成年と判定して返す
 ```
 
 ---

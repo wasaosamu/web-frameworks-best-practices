@@ -19,18 +19,18 @@
 ## 基本的な使い方
 
 ```python
-import re
+import re                          # 正規表現モジュールをインポート
 
 text = "電話番号は 090-1234-5678 です"
 
 # 検索（最初の1件）
-match = re.search(r"\d{3}-\d{4}-\d{4}", text)
+match = re.search(r"\d{3}-\d{4}-\d{4}", text)  # パターンに一致する最初の箇所を検索
 if match:
-    print(match.group())  # 090-1234-5678
+    print(match.group())           # 一致した文字列を取得 → 090-1234-5678
 
 # すべて検索
-matches = re.findall(r"\d+", text)
-print(matches)  # ['090', '1234', '5678']
+matches = re.findall(r"\d+", text) # パターンに一致するすべてをリストで返す
+print(matches)                     # ['090', '1234', '5678']
 ```
 
 - **r"..."** は Raw 文字列。バックスラッシュをエスケープしなくてよい  
@@ -59,9 +59,9 @@ print(matches)  # ['090', '1234', '5678']
 ```python
 import re
 
-text = "料金は 1,000 円です"
-result = re.sub(r",", "", text)
-print(result)  # 料金は 1000 円です
+text = "料金は 1,000 円です"       # カンマを含む文字列
+result = re.sub(r",", "", text)   # パターン "," を "" に置換（カンマを削除）
+print(result)                     # 料金は 1000 円です
 ```
 
 - **re.sub(パターン, 置換後, 文字列)** で置換する  
