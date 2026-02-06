@@ -39,7 +39,10 @@ Python で「読みやすく」「ミスが少なく」「保守しやすい」�
 | **第16章** | [16-decorators.md](./16-decorators.md) | デコレータ |
 | **第17章** | [17-json-serialization.md](./17-json-serialization.md) | JSON の読み書き |
 | **第18章** | [18-dataclass.md](./18-dataclass.md) | dataclass |
-| **用語集** | [13-glossary.md](./13-glossary.md) | 用語集 |
+| **第19章** | [19-pathlib.md](./19-pathlib.md) | pathlib（パス操作） |
+| **第20章** | [20-regex.md](./20-regex.md) | 正規表現（re） |
+| **第21章** | [21-builtin-functions.md](./21-builtin-functions.md) | 組み込み関数（map, filter, zip） |
+| **用語集** | [22-glossary.md](./22-glossary.md) | 用語集 |
 
 ---
 
@@ -63,7 +66,8 @@ Python で「読みやすく」「ミスが少なく」「保守しやすい」�
 ```
 Python/
 ├── README.md
-├── 01-basics.md ～ 18-dataclass.md、13-glossary.md
+├── 01-basics.md ～ 21-builtin-functions.md
+├── 22-glossary.md（用語集・最終章）
 └── frameworks/
     ├── README.md
     ├── flask/

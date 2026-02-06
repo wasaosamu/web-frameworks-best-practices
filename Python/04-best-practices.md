@@ -113,4 +113,5 @@ def process_user(user):
 
 これで、Python のベストプラクティスを一通りまとめました。  
 より詳しく学ぶ場合は、第5章以降（PEP 8、仮想環境、型ヒント、テストなど）を参照してください。  
+実務でよく使う内容（pathlib、正規表現、map/filter/zip）は第19章〜第21章を参照してください。  
 フレームワーク（Flask、Django、FastAPI、Bottle）を使う場合は、`frameworks/` フォルダのドキュメントを参照してください。
