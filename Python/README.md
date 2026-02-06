@@ -68,12 +68,19 @@ Python/
 ├── README.md
 ├── 01-basics.md ～ 21-builtin-functions.md
 ├── 22-glossary.md（用語集・最終章）
-└── frameworks/
+├── frameworks/           ← Web フレームワーク
+│   ├── README.md
+│   ├── flask/
+│   ├── django/
+│   ├── fastapi/
+│   └── bottle/
+└── libraries/            ← よく使うライブラリ
     ├── README.md
-    ├── flask/
-    ├── django/
-    ├── fastapi/
-    └── bottle/
+    ├── requests/
+    ├── pytest/
+    ├── pandas/
+    ├── sqlalchemy/
+    └── pygame/
 ```
 
 各章の MD ファイルを開いて、順に読み進めてください。
